@@ -1,0 +1,41 @@
+<div class="card" style="width: 50rem; height: auto;">
+    
+    <div class="card-body">
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+      <div *ngIf="!userForm.get('email')?.valid && userForm.get('email')?.touched">please enter email</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="check">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+
+    <div formGroupName="address">
+        <div class="mb-3">
+            <label for="exampleInputPassword13" class="form-label">address 1</label>
+            <input type="text" class="form-control" id="exampleInputPassword13" formControlName="address1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword12" class="form-label">state</label>
+            <input type="text" class="form-control" id="exampleInputPassword12" formControlName="state">
+          </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+
+    <button type="button" class="btn btn-primary" (click)="setvalue()">Set Value</button>
+
+    <button type="button" class="btn btn-primary" (click)="patchvalue()">Patch Value</button>
+  </form>
+
+  </div>
+  </div>
